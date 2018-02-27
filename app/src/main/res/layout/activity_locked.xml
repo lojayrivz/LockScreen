@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context="com.lojayrivz.lockscreenapp.LockedActivity">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="243dp"
+        android:layout_height="99dp"
+        android:text="The Phone is now locked and cannot be accessed unless it is on a schedule on a break, dismissal or an emerency calls with an override approach by the teacher"
+        tools:layout_editor_absoluteY="57dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.503" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="144dp"
+        android:layout_height="56dp"
+        android:text="Override"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="144dp"
+        android:layout_height="57dp"
+        android:text="Turn Off Screen"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="227dp" />
 </android.support.constraint.ConstraintLayout>
