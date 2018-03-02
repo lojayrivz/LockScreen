@@ -1,34 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
     android:layout_height="match_parent"
     tools:context="com.lojayrivz.lockscreenapp.LockedActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="243dp"
-        android:layout_height="99dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="29dp"
         android:text="The Phone is now locked and cannot be accessed unless it is on a schedule on a break, dismissal or an emerency calls with an override approach by the teacher"
-        tools:layout_editor_absoluteY="57dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.503" />
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="144dp"
-        android:layout_height="56dp"
-        android:text="Override"
+        android:id="@+id/override"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enable"
         tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="340dp" />
+        tools:layout_editor_absoluteY="340dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/button5"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="16dp" />
+
+
+    <Button
+        android:id="@+id/tb_lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disable"
+        android:layout_alignBaseline="@+id/override"
+        android:layout_alignBottom="@+id/override"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="31dp" />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="144dp"
-        android:layout_height="57dp"
-        android:text="Turn Off Screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Lock Screen"
         tools:layout_editor_absoluteX="120dp"
         tools:layout_editor_absoluteY="227dp" />
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/disable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Override"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

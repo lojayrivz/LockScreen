@@ -6,35 +6,53 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD_DIALOG"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Lock Screen App"
+        android:label="SBlock App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".LoginActivity"
-            android:label="Log In">
+            android:name=".MainActivity"
+            android:label="SBlock">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity" />
-
-        <activity android:name=".LockedActivity" />
-
+        <activity
+            android:name=".LoginActivity"
+            android:label="Log In" />
+        <activity
+            android:name=".LockedActivity"
+            android:label="SBlock" />
         <activity
             android:name=".Register"
             android:label="Register" />
+        <activity
+            android:name=".Unlocked"
+            android:label="SBlock" />
 
+        <activity
+            android:name=".LoginActivity2"
+            android:label="Disable"
+            />
+        
+        
+        <receiver android:name=".MyAdmin" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin"
+                android:resource="@xml/policies" />
 
-        <activity android:name=".Unlocked"></activity>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

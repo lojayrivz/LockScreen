@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,18 +7,26 @@
     tools:context="com.lojayrivz.lockscreenapp.Unlocked">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/exit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
         tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="195dp" />
+        tools:layout_editor_absoluteY="195dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="clickExit"/>
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="106dp"
         android:text="The Phone is now Unlocked!!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         tools:layout_editor_absoluteX="103dp"
         tools:layout_editor_absoluteY="87dp" />
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
