@@ -24,7 +24,7 @@ public class LockedActivity extends AppCompatActivity implements View.OnClickLis
 
    // private ToggleButton mTbLock;
     //private HomeKeyLocker mHomeKeyLocker;
-  //  public int x;
+    public boolean x=true;
 
     private Button lock,disable,enable,override;
     public static final int RESULT_ENABLE = 1;
@@ -60,6 +60,27 @@ public class LockedActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    protected void onPause() {
+        if(!x)
+        {
+
+        }else{
+            Intent i = new Intent(this, LockedActivity.class);
+            i.setAction(Intent.ACTION_MAIN);
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            i.addCategory(Intent.CATEGORY_HOME);
+            i.addCategory(Intent.CATEGORY_DEFAULT);
+            startActivity(i);
+
+            Intent intent = new Intent(this, LockedActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(i);
+        }
+
+        super.onPause();
+    }
+
+    @Override
     public void onClick(View v) {
         if(v==lock){
             boolean active = devicePolicyManager.isAdminActive(compName);
@@ -70,17 +91,19 @@ public class LockedActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this, "You need to enable Admin", Toast.LENGTH_SHORT).show();
             }
         }else if (v==enable){
-
+            x=false;
             Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,compName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"It is needed to lock the screen remotely");
             startActivityForResult(intent, RESULT_ENABLE);
 
         }else if (v==disable){
+           // x=false;
             devicePolicyManager.removeActiveAdmin(compName);
             disable.setVisibility(View.GONE);
             disable.setVisibility(View.VISIBLE);
         }else if (v==override){
+            x=false;
             openUnlocking();
         }
     }
@@ -120,18 +143,11 @@ public class LockedActivity extends AppCompatActivity implements View.OnClickLis
             startActivity(nextFlow);
             return true;
         }else if ((keyCode == KeyEvent.KEYCODE_HOME)) {
-            Intent nextFlow = new Intent(this, LockedActivity.class);
-            startActivity(nextFlow);
+
+//            Intent nextFlow = new Intent(this, LockedActivity.class);
+//            startActivity(nextFlow);
             return true;
         }
         return super.onKeyDown(keyCode,event);
     }
-
-    @Override
-    public void onAttachedToWindow() {
-        // TODO Auto-generated method stub
-        this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
-        super.onAttachedToWindow();
-    }
-
 }
